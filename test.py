@@ -5,12 +5,19 @@ Created on Mon Jul 31 19:12:53 2017
 @author: npanwar
 """
 from PROC_SQL import join
+from PROC_SQL import columnCalculation
 from joinMerge import *
 from transpose import *
 table1= 'A'
 table2= 'B'
 column1= 'ID1'
 column2= 'ID2'
+
+a=[{'column':column1, 'condition':'>', 'value':55, 'gate':'AND','braces':None},{'column':column2, 'condition':'<', 'value':323, 'gate':'AND', 'braces':'('},{'column':column2, 'condition':'<', 'value':323, 'gate':None, 'braces':')'}]
+x= columnCalculation.transformAllColumns(a)
+print x
+
+
 #'union,intersect,minus,transpose'
 
 #x=tableJoins(table1, table2, join, column1, column2)
@@ -35,10 +42,8 @@ column2= 'ID2'
 #print x
 #x= join.joinTables(table1,column1,'right join',table2,column2,'newTable')
 #print x
-x= join.unionTables(table1,table2,'UNION','newTable')
-print x
-x= join.unionTables(table1,table2,'UNION ALL','newTable')
-print x
-x= join.intersectTables(table1,table2,'INTERSECT','newTable')
-print x
-
+#x= join.unionTables(table1,table2,'UNION','newTable')
+#print x
+#x= join.unionTables(table1,table2,'UNION ALL','newTable')
+#print x
+#x= join.intersectTables(table1,table2,'INTERSECT','newTable')
